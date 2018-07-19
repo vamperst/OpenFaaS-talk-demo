@@ -7,11 +7,11 @@ def handle(req):
     Args:
         req (str): request body
     """
-    url = 'https://api.imgflip.com/get_memes'
+    url = 'https://pixabay.com/api/?key=9590297-1064015f7a62f8e34834124a3&q=brasil&image_type=photo&pretty=true'
     r = requests.get(url)
     memeDict = json.loads(r.text)
-
-    memePos = randint(0,len(memeDict["data"]["memes"])-1)
-    print(memeDict["data"]["memes"][memePos]['name'])
-    html = "<p><img src="+memeDict["data"]["memes"][memePos]['url']+" /></p>"
+    memePos = randint(0,len(memeDict["hits"])-1)
+    html = "<p><img src=\""+memeDict["hits"][memePos]['largeImageURL']+"\" /></p>"
     return html
+
+

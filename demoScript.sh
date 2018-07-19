@@ -30,6 +30,9 @@ faas-cli new --lang python3 demo-html
 # environment:
 #       content_type: text/html
 echo "requests" > ./demo-html/requirements.txt
+
+## >>>>> copiar conteudo do getMeme.py para demo-html/handler.py
+
 faas-cli build -f ./demo-html.yml
 faas-cli deploy -f ./demo-html.yml
 
