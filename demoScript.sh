@@ -2,9 +2,12 @@
 curl -sL cli.openfaas.com | sudo sh
 git clone https://github.com/openfaas/faas
 cd faas && \
-  git checkout 0.7.8
+  git checkout 0.9.14
 ./deploy_stack.sh
 
+#####
+#  username: admin
+#  password: 097b9345f11be650dcdafb2628227a35342a2b14baca3c3dfe503d7bc35ccbf1
 #mostrar o grafana
 #127.0.0.1:8080
 
@@ -31,7 +34,10 @@ faas-cli new --lang python3 demo-html
 #       content_type: text/html
 echo "requests" > ./demo-html/requirements.txt
 
+## >>>>> copiar conteudo do demo-html.yml
 ## >>>>> copiar conteudo do getMeme.py para demo-html/handler.py
+
+faas-cli login --username admin --password 097b9345f11be650dcdafb2628227a35342a2b14baca3c3dfe503d7bc35ccbf1
 
 faas-cli build -f ./demo-html.yml
 faas-cli deploy -f ./demo-html.yml
